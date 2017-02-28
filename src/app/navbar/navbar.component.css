@@ -1,0 +1,37 @@
+.main-nav {
+  background-color: #fff;
+  transition: all 1s ease-in-out ;
+}
+
+.scroll-animated {
+  background-color: #2b2f48 !important;
+}
+
+.navbar-nav li.main-nav-item > a {
+  font-size: 18px;
+  margin-top: 5px;
+  color: #222222;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+}
+
+.navbar-nav li.main-nav-item > a:hover, .navbar-nav li.main-nav-item > a:focus {
+  color:  #a499c9;
+  transform: scale(1.2);
+}
+
+.navbar-default .navbar-nav > .active > a {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #f7f7f7;
+  background-color: transparent;
+}
+
+@media only screen and (max-width: 700px) {
+  .motto {
+    display: none;
+  }
+}

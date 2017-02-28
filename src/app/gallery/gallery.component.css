@@ -1,0 +1,21 @@
+.gallery{
+  position: relative;
+  min-height: 600px;
+}
+
+.galleryItem {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.8;
+  transition: opacity .5s ease-in-out;
+}
+
+.galleryItem.visible{
+  opacity: 1;
+}

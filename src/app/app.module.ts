@@ -4,10 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AppInfoComponent } from './app-info/app-info.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { PlanningFormComponent } from './planning-form/planning-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    AppInfoComponent,
+    GalleryComponent,
+    PlanningFormComponent,
   ],
   imports: [
     BrowserModule,
