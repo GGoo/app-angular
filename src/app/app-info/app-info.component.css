@@ -6,31 +6,26 @@
   font-size: 25px;
   width: 100%;
   background-color: #ffffff;
-  padding-bottom: 60px;
   color: #222222;
-  height: 120%;
+
 }
 
 .o-aplikacji{
   height:120%;
-  margin:5%;
+  margin:3%;
   text-align: center;
+
 }
 
 .aplikacja p{
   margin: 0.3em 0;
-  margin-top: 10%;
+  margin-top: 7%;
   text-align: center;
 }
 
-/*.aplikacja p: last-child{
-  margin-bottom:
-    20%;
-}*/
-
 .aplikacja.ajdu{
   color:#a499c9;
-  /*font-weight: bolder;*/
+ 
 }
 
 .fade:hover {
