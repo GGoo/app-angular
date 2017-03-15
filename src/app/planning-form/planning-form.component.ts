@@ -1,4 +1,4 @@
-/*import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-planning-form',
@@ -13,5 +13,3 @@ export class PlanningFormComponent implements OnInit {
   }
 
 }
-
-*/

@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-xs-12" (click)="onClicked()">
+    <ul *ngIf = "selected" class="list-group">
+      <app-category-item *ngFor="let category of categories; let i = index" [category]="category" [categoryId] = i></app-category-item>
+    </ul>
+  </div>
+</div>
+
+
