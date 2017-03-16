@@ -1,6 +1,7 @@
 import {Address} from "./address";
 export class Organization {
-  constructor(public id : number, public name : string, public login : number, public password : string,
-              public email : string, public active : boolean, public date_created : Date, public address : Address
+  constructor(public id : number, public name : string, public login : string, public password : string,
+              public email : string, public phoneNumber : string, public active : boolean, public dateCreated : string,
+              public address : Address
   ){}
 }

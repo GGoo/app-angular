@@ -8,13 +8,21 @@
     <div class="collapse navbar-collapse" id="mainNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li class="main-nav-item">
-          <a href="#main">
+          <a [routerLink] = "['/']">
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
           </a>
         </li>
         <li class="main-nav-item">
-          <a class="link" href="#oaplikacji">
+          <a [routerLink] = "['/info']">
             O Aplikacji</a>
+        </li>
+        <li class="main-nav-item">
+          <a [routerLink] = "['/categories']">
+            Planowanie</a>
+        </li>
+        <li class="main-nav-item">
+          <a class="link" href="#pakiet">
+            Pakiet</a>
         </li>
         <li class="main-nav-item">
           <a class="link" href="#blog">

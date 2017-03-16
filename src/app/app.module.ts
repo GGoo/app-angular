@@ -8,8 +8,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { AppInfoComponent } from './app-info/app-info.component';
 import { GalleryComponent } from './gallery/gallery.component';
-/*import { PlanningFormComponent } from './planning-form/planning-form.component';
-*/
+import { PlanningFormComponent } from './planning-form/planning-form.component';
+import { CategoryService } from "./services/category.service";
+import { CategoryListComponent } from './categories/category-list.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { routing } from "./app.routing";
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
+import { CategoriesStartComponent } from './categories/categories-start.component';
+import { CategoryDetailComponent } from './categories/category-detail/category-detail.component';
+import { CategoryItemComponent } from './categories/category-item.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +25,21 @@ import { GalleryComponent } from './gallery/gallery.component';
     HeaderComponent,
     AppInfoComponent,
     GalleryComponent,
-  /*  PlanningFormComponent,*/
+    PlanningFormComponent,
+    CategoryListComponent,
+    CategoriesComponent,
+    CategoriesStartComponent,
+    CategoryDetailComponent,
+    CategoryItemComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing,
+    Ng2PageScrollModule.forRoot()
   ],
-  providers: [],
+  providers: [CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
