@@ -1,20 +1,3 @@
-<div class="gallery">
-  <div class="galleryItem" style="background-image: url('./images/slides/gal1-min.jpg')">
-  </div>
-  <div class="galleryItem three" style="display: none; background-image: url('./images/slides/gal2-min.jpg');">
-  </div>
-  <div class="galleryItem four" style="display: none; background-image: url('./images/slides/gal3-min.jpg');">
-  </div>
-  <div class="galleryItem five" style="display: none; background-image:url('./images/slides/gal4-min.jpg');">
-  </div>
-  <div class="galleryItem six" style="display: none; background-image:url('./images/slides/gal5-min.jpg');">
-  </div>
-  <div class="galleryItem seven" style="display: none; background-image:url('./images/slides/gal6-min.jpg');">
-  </div>
-  <div class="galleryItem eight" style="display: none; background-image:url('./images/slides/gal7-min.jpg');">
-  </div>
-  <div class="galleryItem nine" style="display: none; background-image:url('./images/slides/gal8-min.jpg');">
-  </div>
-  <div class="galleryItem ten" style="display: none; background-image:url('./images/slides/gal9-min.jpg');">
-  </div>
+<div class="section gallery-section" data-time="4000">
+  <img *ngFor="let slide of slides" class="gallery-item" [src]="slide.src">
 </div>

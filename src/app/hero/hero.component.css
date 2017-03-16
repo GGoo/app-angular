@@ -1,0 +1,41 @@
+
+
+
+.header {
+    position: relative;
+    font-family: "Lato", Arial, sans-serif;
+    background:url("../images/home/1.jpg") no-repeat; 
+    background-size: cover;
+    top:5%;
+    left:0;
+    height:100%;
+    width:100%;
+}
+
+@media (min-width: 1921px){
+    background:url("/images/home/1.jpg") no-repeat; /* min 1920px, np VHD - do poprawy przy innych rozdz */
+}
+
+.motto {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-family: "Oswald", Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-weight: 700;
+    position: absolute;
+    left: 200px;
+    bottom: 190px;
+    text-shadow:#a499c9 3px 2px 0;
+    font-size: 122px;
+    z-index: 101;
+}
+
+.motto__sopot, .motto__miasto {
+    display: block;
+}
+
+.motto__miasto {
+    font-size: 88px;
+    margin-top: 15px;
+    margin-left: 99px;
+    font-family: "Mathlete-Bulky", Arial, sans-serif;
+}

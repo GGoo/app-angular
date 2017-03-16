@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HeaderComponent } from './header/header.component';
+import { HeroComponent } from './hero/hero.component';
 import { AppInfoComponent } from './app-info/app-info.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { PlanningFormComponent } from './planning-form/planning-form.component';
@@ -18,11 +18,17 @@ import { CategoriesStartComponent } from './categories/categories-start.componen
 import { CategoryDetailComponent } from './categories/category-detail/category-detail.component';
 import { CategoryItemComponent } from './categories/category-item.component';
 
+import { BlogComponent } from './blog/blog.component';
+import { FooterComponent } from './footer/footer.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AboutComponent } from './about/about.component';
+import { HomepageComponent } from './homepage/homepage.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HeaderComponent,
+    HeroComponent,
     AppInfoComponent,
     GalleryComponent,
     PlanningFormComponent,
@@ -31,6 +37,10 @@ import { CategoryItemComponent } from './categories/category-item.component';
     CategoriesStartComponent,
     CategoryDetailComponent,
     CategoryItemComponent,
+    BlogComponent,
+    FooterComponent, 
+    NotFoundComponent, 
+    AboutComponent, HomepageComponent
   ],
   imports: [
     BrowserModule,
