@@ -27,27 +27,17 @@ module.exports = function(grunt) {
         dev: {
             files: [ {
                 expand: true,
-                cwd: './admin/assets',
-                src: [ '**/*.!(coffee|less)' ],
-                dest: './admin/public'
-            }, {
-                expand: true,
                 cwd: './assets',
                 src: [ '**/*.!(coffee|less)' ],
-                dest: './public'
+                dest: './src/public'
             } ]
         },
         build: {
             files: [ {
                 expand: true,
-                cwd: './admin/assets',
-                src: [ '**/*.!(coffee|less)' ],
-                dest: './admin/public'
-            }, {
-                expand: true,
                 cwd: './assets',
                 src: [ '**/*.!(coffee|less)' ],
-                dest: './public'
+                dest: './src/public'
             } ]
         }
     });

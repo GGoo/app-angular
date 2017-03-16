@@ -24,15 +24,6 @@ var cssFilesToInject = [
 // Client-side javascript files to inject in order
 // (uses Grunt-style wildcard/glob/splat expressions)
 var jsFilesToInject = [
-
-    // Load sails.io before everything else
-
-    // Dependencies like jQuery, or Angular are brought in here
-    'assets/js/vendors/**/*.js',
-
-    // All of the rest of your client-side js files
-    // will be injected here in no particular order.
-    'assets/js/**/*.js'
 ];
 
 
@@ -49,13 +40,8 @@ var templateFilesToInject = [
 ];
 
 
-
-
-
-
-
 // Default path for public folder (see documentation for more information)
-var tmpPath = './public/';
+var tmpPath = './src/public/';
 
 // Prefix relative paths to source files so they point to the proper locations
 // (i.e. where the other Grunt tasks spit them out, or in some cases, where
@@ -63,17 +49,17 @@ var tmpPath = './public/';
 module.exports.cssFilesToInject = cssFilesToInject.map(function(cssPath) {
     // If we're ignoring the file, make sure the ! is at the beginning of the path
     if (cssPath[0] === '!') {
-        return require('path').join('!./public/', cssPath.substr(1));
+        return require('path').join('!./src/public/', cssPath.substr(1));
     }
-    return require('path').join('./public/', cssPath);
+    return require('path').join('./src/public/', cssPath);
 });
 
 module.exports.jsFilesToInject = jsFilesToInject.map(function(jsPath) {
     // If we're ignoring the file, make sure the ! is at the beginning of the path
     if (jsPath[0] === '!') {
-        return require('path').join('!./public/', jsPath.substr(1));
+        return require('path').join('!./src/public/', jsPath.substr(1));
     }
-    return require('path').join('./public/', jsPath);
+    return require('path').join('./src/public/', jsPath);
 });
 
 module.exports.templateFilesToInject = templateFilesToInject.map(function(tplPath) {

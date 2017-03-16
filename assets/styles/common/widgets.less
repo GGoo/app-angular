@@ -1,0 +1,138 @@
+.hero-section {
+    background-image: url('../../images/hero/hero-1.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+
+    .hero-bg {
+        .square(100%);
+
+        background-color: rgba(0, 0, 0, .2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    h1 {
+        .text-center; 
+
+        font-family: @font-family-00;
+        // font-size: 75px;
+        color: #fff;
+        text-shadow: @color-violet-00 3px 2px 0;
+        background-color: rgba(0, 0, 0, .4);
+
+        padding: @grid;
+        margin-top: 50%;
+
+        margin-left: -@grid;
+        margin-right: -@grid; // -X = (X * (-1))
+
+        line-height: 1.4321;
+        position: relative;
+        z-index: 10;
+    }
+}
+
+@media (min-width: @screen-sm) {
+    .hero-section {
+        h1 {
+            margin-left: initial;
+            margin-right: initial;
+
+            span {
+                display: block;
+            }
+        }
+    }
+}
+
+@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+    .hero-section {
+        h1 {
+            font-size: 50px;
+            margin-top: 35%;
+        }
+    }
+}   
+
+@media (min-width: @screen-md) {
+    .hero-section {
+        .hero-bg {
+            // display: none;
+            background-color: rgba(255, 255, 255, .3);
+        }
+
+        h1 {
+            font-size: 75px;
+            margin-top: 100vh - 75px;
+            background-color: transparent;
+            color: darken(#fff, 6%);
+        }
+    }
+}
+
+.about-section {
+    background-color: #fff;
+
+    .info {
+        font-family: @font-family-01;
+        line-height: @line-height-base;
+        font-size: @font-size-small * 2;
+        margin-top: @grid * 15;
+        font-weight: 300;
+    }
+}
+
+.gallery-section {
+    .transition(opacity .5s ease-in-out);
+
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: none;
+    background-position: center center;
+    opacity: 0;
+
+    &.visible {
+        opacity: 1;
+    }
+
+    .gallery-item {
+        .square(100%);
+
+        display: none !important;
+        
+        position: absolute;
+        
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity .5s ease-in-out;
+        z-index: 0;
+
+        &.visible {
+            opacity: 1;
+            z-index: 10;
+        }
+    }
+}
+
+.blog-section {
+
+}
+
+
+.footer {
+
+}
+
+
+
