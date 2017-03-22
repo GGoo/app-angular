@@ -23,6 +23,8 @@ import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { HttpComponent } from './services/http/http.component';
+import {HttpService} from "./services/http.service";
 
 @NgModule({
   declarations: [
@@ -38,9 +40,9 @@ import { HomepageComponent } from './homepage/homepage.component';
     CategoryDetailComponent,
     CategoryItemComponent,
     BlogComponent,
-    FooterComponent, 
-    NotFoundComponent, 
-    AboutComponent, HomepageComponent
+    FooterComponent,
+    NotFoundComponent,
+    AboutComponent, HomepageComponent, HttpComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     routing,
     Ng2PageScrollModule.forRoot()
   ],
-  providers: [CategoryService],
+  providers: [CategoryService, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class GalleryComponent implements OnInit {
   private slides:Array<any> = [];
 
-  constructor() { 
+  constructor() {
     this._addNewSlides();
-  } 
+  }
 
   private _addNewSlides() {
     this.slides.push(
@@ -28,7 +28,6 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('ala ma kota')
   }
 
 }
