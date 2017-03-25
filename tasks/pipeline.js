@@ -41,7 +41,7 @@ var templateFilesToInject = [
 
 
 // Default path for public folder (see documentation for more information)
-var tmpPath = './public/';
+var tmpPath = './src/public/';
 
 // Prefix relative paths to source files so they point to the proper locations
 // (i.e. where the other Grunt tasks spit them out, or in some cases, where
@@ -49,17 +49,17 @@ var tmpPath = './public/';
 module.exports.cssFilesToInject = cssFilesToInject.map(function(cssPath) {
     // If we're ignoring the file, make sure the ! is at the beginning of the path
     if (cssPath[0] === '!') {
-        return require('path').join('!./public/', cssPath.substr(1));
+        return require('path').join('!./src/public/styles/', cssPath.substr(1));
     }
-    return require('path').join('./public/', cssPath);
+    return require('path').join('./src/public/styles/', cssPath);
 });
 
 module.exports.jsFilesToInject = jsFilesToInject.map(function(jsPath) {
     // If we're ignoring the file, make sure the ! is at the beginning of the path
     if (jsPath[0] === '!') {
-        return require('path').join('!./public/', jsPath.substr(1));
+        return require('path').join('!./src/public/', jsPath.substr(1));
     }
-    return require('path').join('./public/', jsPath);
+    return require('path').join('./src/public/', jsPath);
 });
 
 module.exports.templateFilesToInject = templateFilesToInject.map(function(tplPath) {
