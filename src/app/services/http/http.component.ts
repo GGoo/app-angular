@@ -12,9 +12,7 @@ export class HttpComponent implements OnInit {
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    this.httpService.getData().subscribe(
-      (data: Response) => console.log(data)
-    );
+    this.httpService.getData();
   }
 
 }
