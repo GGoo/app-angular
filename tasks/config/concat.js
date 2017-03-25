@@ -23,11 +23,11 @@ module.exports = function(grunt) {
     grunt.config.set('concat', {
         js: {
             src: pipeline.jsFilesToInject,
-            dest: './src/public/concat/production.js'
+            dest: './public/concat/production.js'
         },
         css: {
             src: pipeline.cssFilesToInject,
-            dest: './src/public/concat/production.css'
+            dest: './public/concat/production.css'
         }
     });
 

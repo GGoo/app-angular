@@ -1,0 +1,6 @@
+*.min.js
+legacy/
+vendors/
+node_modules/
+e2e/
+tasks/
