@@ -1,5 +1,6 @@
+
 import { Injectable } from '@angular/core';
-import {Http, Response} from "@angular/http";
+import {Http} from "@angular/http";
 
 @Injectable()
 export class HttpService {
@@ -7,8 +8,7 @@ export class HttpService {
   constructor(private http: Http) { }
 
   getData(){
-    return this.http.get('https://ajdutestjsonow.firebaseio.com/.json ')
-      .map((response: Response) => response.json());
+    return this.http.get('https://ajdu-27fe2.firebaseio.com/title.json');
   }
 
 
