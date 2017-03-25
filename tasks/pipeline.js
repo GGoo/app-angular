@@ -17,7 +17,7 @@
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
-    'styles/**/*.css'
+    'assets/styles/**/*.css'
 ];
 
 
@@ -41,7 +41,7 @@ var templateFilesToInject = [
 
 
 // Default path for public folder (see documentation for more information)
-var tmpPath = './src/public/';
+var tmpPath = './public/';
 
 // Prefix relative paths to source files so they point to the proper locations
 // (i.e. where the other Grunt tasks spit them out, or in some cases, where
@@ -49,17 +49,17 @@ var tmpPath = './src/public/';
 module.exports.cssFilesToInject = cssFilesToInject.map(function(cssPath) {
     // If we're ignoring the file, make sure the ! is at the beginning of the path
     if (cssPath[0] === '!') {
-        return require('path').join('!./src/public/', cssPath.substr(1));
+        return require('path').join('!./public/', cssPath.substr(1));
     }
-    return require('path').join('./src/public/', cssPath);
+    return require('path').join('./public/', cssPath);
 });
 
 module.exports.jsFilesToInject = jsFilesToInject.map(function(jsPath) {
     // If we're ignoring the file, make sure the ! is at the beginning of the path
     if (jsPath[0] === '!') {
-        return require('path').join('!./src/public/', jsPath.substr(1));
+        return require('path').join('!./public/', jsPath.substr(1));
     }
-    return require('path').join('./src/public/', jsPath);
+    return require('path').join('./public/', jsPath);
 });
 
 module.exports.templateFilesToInject = templateFilesToInject.map(function(tplPath) {
