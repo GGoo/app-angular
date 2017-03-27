@@ -1,6 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Category} from "../shared";
 import {CategoryService} from "../services/category.service";
+import {HttpService} from "../services/http.service";
 
 @Component({
   selector: 'app-category-list',
@@ -14,7 +15,7 @@ export class CategoryListComponent implements OnInit{
   constructor(private categoryService: CategoryService){};
 
   ngOnInit() {
-    this.categories = this.categoryService.getCategories();
+   this.categories = this.categoryService.getCategories();
   }
 
   onClicked(){
