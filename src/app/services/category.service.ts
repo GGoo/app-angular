@@ -12,7 +12,7 @@ export class CategoryService {
   constructor(private http: Http) { }
 
   getCategories(){
-    this.http.get('https://ajdutestjsonow.firebaseio.com/.json')
+    this.http.get('http://137.74.116.6/rest/categories/')
       .map(
         (response: Response) => {
           return response.json();
