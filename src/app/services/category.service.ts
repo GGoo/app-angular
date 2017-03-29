@@ -7,27 +7,25 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class CategoryService {
-  categories : Category[] = [];
+   categories : Category[];
 
   constructor(private http: Http) { }
 
-  getCategories(){
+  getData(){
+  const categoriesFromServer = [];
     this.http.get('https://ajdutestjsonow.firebaseio.com/.json')
       .map(
         (response: Response) => {
           return response.json();
         }
       ).subscribe(
-      data => {
-        console.log(data);
-        const myArray = [];
-        for (let key in data) {
-          myArray.push(data[key]);
-        }
-        this.categories = myArray;
+      (data)=> {
+        for (let key in data)
+          categoriesFromServer.push(data[key]);
       }
     );
-    return this.categories;
+    this.categories = categoriesFromServer;
+    return categoriesFromServer;
   }
 
   getCategory(id: number) {

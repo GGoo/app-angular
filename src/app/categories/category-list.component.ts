@@ -1,7 +1,6 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input } from '@angular/core';
 import {Category} from "../shared";
 import {CategoryService} from "../services/category.service";
-import {HttpService} from "../services/http.service";
 
 @Component({
   selector: 'app-category-list',
@@ -9,14 +8,13 @@ import {HttpService} from "../services/http.service";
 })
 
 export class CategoryListComponent implements OnInit{
-  categories: Category[];
+  categories: Array<Category>;
   @Input() selected = true;
 
-  constructor(private categoryService: CategoryService){};
+  constructor( private categoryService: CategoryService){};
 
   ngOnInit() {
-   this.categories = this.categoryService.getCategories();
-   console.log("hello");
+   this.categories = this.categoryService.getData();
   }
 
   onClicked(){
