@@ -10,11 +10,22 @@ import {Response} from "@angular/http";
 export class HttpComponent implements OnInit {
 
   constructor(private httpService: HttpService) { }
+  items: any[] = [];
 
   ngOnInit() {
     this.httpService.getData().subscribe(
-      (data: Response) => console.log(data)
+      data => {
+        console.log(data);
+        const myArray = [];
+        for (let key in data) {
+          myArray.push(data[key]);
+        }
+        this.items = myArray;
+      }
+
     );
+
+
   }
 
 }
