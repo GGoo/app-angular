@@ -9,13 +9,14 @@ import {HttpService} from "../services/http.service";
 })
 
 export class CategoryListComponent implements OnInit{
-  categories: Category[] = [];
+  categories: Category[];
   @Input() selected = true;
 
   constructor(private categoryService: CategoryService){};
 
   ngOnInit() {
    this.categories = this.categoryService.getCategories();
+   console.log("hello");
   }
 
   onClicked(){
