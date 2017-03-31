@@ -27,6 +27,8 @@ import { HttpComponent } from './services/http/http.component';
 import { HttpService } from './services/http.service';
 import { CalendarComponent } from 'angular2-fullcalendar/src/calendar/calendar';
 import { PlannerCalendarComponent } from './plannercalendar/plannercalendar.component';
+import { DragndropComponent } from './dragndrop/dragndrop.component';
+import { DndModule } from 'ng2-dnd';
 
 @NgModule({
   declarations: [
@@ -46,14 +48,16 @@ import { PlannerCalendarComponent } from './plannercalendar/plannercalendar.comp
     NotFoundComponent,
     AboutComponent, HomepageComponent, HttpComponent,
     CalendarComponent,
-    PlannerCalendarComponent
+    PlannerCalendarComponent,
+    DragndropComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     routing,
-    Ng2PageScrollModule.forRoot()
+    Ng2PageScrollModule.forRoot(),
+    DndModule.forRoot()
   ],
   providers: [CategoryService, HttpService],
   bootstrap: [AppComponent]
