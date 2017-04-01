@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Category} from "../shared";
-import {Organization} from "../shared/organization";
-import {Address} from "../shared/address";
-import {Http, Response, Headers} from "@angular/http";
+
+import {Http, Response} from "@angular/http";
 import 'rxjs/Rx';
+import {Subscription} from "rxjs";
 
 @Injectable()
 export class CategoryService {
+  private subscription: Subscription;
   private baseUrl: string = 'https://ajdutestjsonow.firebaseio.com';
-  private id: number = 1;
   categories : Category[];
 
   constructor(private http: Http) { }
