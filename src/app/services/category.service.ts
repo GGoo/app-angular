@@ -2,18 +2,21 @@ import {Injectable} from '@angular/core';
 import {Category} from "../shared";
 import {Organization} from "../shared/organization";
 import {Address} from "../shared/address";
-import {Http, Response} from "@angular/http";
+import {Http, Response, Headers} from "@angular/http";
 import 'rxjs/Rx';
 
 @Injectable()
 export class CategoryService {
-   categories : Category[];
+  private baseUrl: string = 'https://ajdutestjsonow.firebaseio.com';
+  private id: number = 1;
+  categories : Category[];
 
   constructor(private http: Http) { }
 
   getData(){
   const categoriesFromServer = [];
-    this.http.get('https://ajdutestjsonow.firebaseio.com/.json')
+   // this.http.get(`${this.baseUrl}/${this.id}.json`)
+    this.http.get(`${this.baseUrl}/.json`)
       .map(
         (response: Response) => {
           return response.json();
