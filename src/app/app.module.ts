@@ -25,6 +25,7 @@ import { AboutComponent } from './about/about.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HttpComponent } from './services/http/http.component';
 import { HttpService } from './services/http.service';
+
 import { CalendarComponent } from 'angular2-fullcalendar/src/calendar/calendar';
 import { PlannerCalendarComponent } from './plannercalendar/plannercalendar.component';
 
@@ -45,8 +46,12 @@ import { PlannerCalendarComponent } from './plannercalendar/plannercalendar.comp
     FooterComponent,
     NotFoundComponent,
     AboutComponent, HomepageComponent, HttpComponent,
+<<<<<<< HEAD
     CalendarComponent,
     PlannerCalendarComponent
+=======
+
+>>>>>>> adding variable to http links
   ],
   imports: [
     BrowserModule,
