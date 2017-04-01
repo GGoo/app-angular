@@ -14,8 +14,8 @@ export class CategoryService {
   constructor(private http: Http) { }
 
   getData(){
-  const categoriesFromServer = [];
-   // this.http.get(`${this.baseUrl}/${this.id}.json`)
+    const categoriesFromServer = [];
+    // this.http.get(`${this.baseUrl}/${this.id}.json`)
     this.http.get(`${this.baseUrl}/.json`)
       .map(
         (response: Response) => {
