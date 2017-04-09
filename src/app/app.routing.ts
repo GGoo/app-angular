@@ -5,7 +5,7 @@ import { PlannerCalendarComponent } from './plannercalendar/plannercalendar.comp
 import { DragndropComponent } from './dragndrop/dragndrop.component';
 
 import { CATEGORIES_ROUTES } from './categories.routes';
-import { PlannerCalendarComponent } from './plannercalendar/plannercalendar.component';
+
 
 const APP_ROUTES: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
