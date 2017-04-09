@@ -1,20 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
-    moduleId: module.id,
+  moduleId: module.id,
   selector: 'app-plannercalendar',
   templateUrl: './plannercalendar.component.html'
 })
 export class PlannerCalendarComponent implements OnInit {
+  public element: ElementRef;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  ngAfterViewInit() {
+  }
+
   calendarOptions:Object = {
         header: {
-          left: 'prev,next today',
+          left: 'prevYear,prev,next,nextYear today',
           center: 'title',
           right: 'month,agendaWeek,agendaDay,listWeek'
         },
@@ -22,13 +26,23 @@ export class PlannerCalendarComponent implements OnInit {
         fixedWeekCount : true,
         defaultDate: '2017-04-10',
         defaultView: 'agendaWeek',
-        timeFormat: 'h:mm',
-        views: {
-            agenda: {
-              timeFormat: 'h:mm'
-            }
+        timeFormat: 'H:mm',
+        titleFormat: 'D MMMM YYYY',
+        allDayText: 'Cały dzień',
+        buttonText: {
+          today:    'dzisiaj',
+          month:    'miesiąc',
+          week:     'tydzień',
+          day:      'dzień',
+          list:     'lista'
         },
         locale: 'pl',
+        views: {
+            agenda: {
+              timeFormat: 'H:mm',
+              slotLabelFormat: 'H:mm'
+            }
+        },
         businessHours: true,
         editable: true,
         eventLimit: true, // allow "more" link when too many events
