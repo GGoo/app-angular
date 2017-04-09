@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {Service} from "../shared/service";
+// import {Service} from "../shared/service";
 import {Http, Response} from "@angular/http";
 
 @Injectable()
 export class ServiceService {
 
   private baseUrl: string = 'https://serivces-fb737.firebaseio.com/';
-  services : Service [];
+  services : any [];
 
   constructor(private http: Http) { }
 
