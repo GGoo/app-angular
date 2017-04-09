@@ -1,0 +1,37 @@
+<h4>Wybor usług do pakietu</h4>
+<div class="row">
+
+  <div class="col-sm-3">
+    <div class="panel panel-success">
+      <div class="panel-heading">Dostępne usługi</div>
+      <div class="panel-body">
+        <div *ngFor="let service of availableServices" class="panel panel-default"
+             dnd-draggable [dragEnabled]="service.quantity>0" [dragData]="service"
+             (onDragSuccess)="orderedService($event)" [dropZones]="['demo1']">
+          <div class="panel-body">
+            <div [hidden]="service.quantity===0">{{service.name}} - {{service.cost}} zł<br>
+            </div>
+            <div [hidden]="service.quantity>0">
+              <del>{{service.name}}</del>
+              <br>(wybrane)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div dnd-droppable (onDropSuccess)="addToBasket($event)" [dropZones]="['demo1']" class="panel panel-info">
+      <div class="panel-heading">Nasz pakiet<br>(łączny koszt: {{totalCost()}} zł)</div>
+      <div class="panel-body">
+        <div *ngFor="let service of shoppingBasket" class="panel panel-default"
+             dnd-draggable [dragEnabled]>
+          <div class="panel-body">
+            {{service.name}}<br>(koszt: {{service.cost * service.quantity}} zł)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
