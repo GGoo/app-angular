@@ -12,7 +12,7 @@ import { PlanningFormComponent } from './planning-form/planning-form.component';
 import { CategoryService } from "./services/category.service";
 import { CategoryListComponent } from './categories/category-list.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { routing } from './app.routing';
+import { routing } from "./app.routing";
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { CategoriesStartComponent } from './categories/categories-start.component';
 import { CategoryDetailComponent } from './categories/category-detail/category-detail.component';
@@ -25,6 +25,8 @@ import { AboutComponent } from './about/about.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HttpComponent } from './services/http/http.component';
 import { HttpService } from './services/http.service';
+import {OrganizationService} from "./services/organization.service";
+
 import { CalendarComponent } from 'angular2-fullcalendar/src/calendar/calendar';
 import { PlannerCalendarComponent } from './plannercalendar/plannercalendar.component';
 
@@ -55,7 +57,7 @@ import { PlannerCalendarComponent } from './plannercalendar/plannercalendar.comp
     routing,
     Ng2PageScrollModule.forRoot()
   ],
-  providers: [CategoryService, HttpService],
+  providers: [CategoryService, HttpService, OrganizationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
