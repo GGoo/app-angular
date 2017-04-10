@@ -19,15 +19,17 @@ export class DragndropComponent implements OnInit {
   ngOnInit() {
   }
 
-  orderedService($event: any) {
-    let orderedService: Service = $event.dragData;
-    orderedService.quantity--;
+  removeFromAvailableServices(service) {
+    const index: number = this.availableServices.indexOf(service);
+    if (index !== -1) {
+      this.availableServices.splice(index, 1);
+    }
   }
 
   addToBasket($event: any) {
-    let newService: Service = $event.dragData;
-    for (let indx in this.shoppingBasket) {
-      let service: Service = this.shoppingBasket[indx];
+    const newService: Service = $event.dragData;
+    for (const indx in this.shoppingBasket) {
+      const service: Service = this.shoppingBasket[indx];
       if (service.name === newService.name) {
         service.quantity++;
         return;
@@ -39,10 +41,26 @@ export class DragndropComponent implements OnInit {
     });
   }
 
+
+  removeFromBasket(service) {
+      const index: number = this.shoppingBasket.indexOf(service);
+      if (index !== -1) {
+        this.shoppingBasket.splice(index, 1);
+      }
+
+    this.availableServices.push(service);
+    this.shoppingBasket.sort((a: Service, b: Service) => {
+    return a.name.localeCompare(b.name);
+     });
+    this.availableServices.sort((a: Service, b: Service) => {
+      return a.name.localeCompare(b.name);
+    });
+  }
+
   totalCost(): number {
-    let cost: number = 0;
-    for (let indx in this.shoppingBasket) {
-      let service: Service = this.shoppingBasket[indx];
+    let cost = 0;
+    for (const indx in this.shoppingBasket) {
+      const service: Service = this.shoppingBasket[indx];
       cost += (service.cost * service.quantity);
     }
     return cost;
