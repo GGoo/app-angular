@@ -14,7 +14,6 @@ import { CategoryListComponent } from './categories/category-list.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { routing } from "./app.routing";
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
-import { CategoriesStartComponent } from './categories/categories-start.component';
 import { CategoryDetailComponent } from './categories/category-detail/category-detail.component';
 import { CategoryItemComponent } from './categories/category-item.component';
 
@@ -23,7 +22,6 @@ import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { HttpComponent } from './services/http/http.component';
 import { HttpService } from './services/http.service';
 import {OrganizationService} from "./services/organization.service";
 
@@ -42,13 +40,12 @@ import { DndModule } from 'ng2-dnd';
     PlanningFormComponent,
     CategoryListComponent,
     CategoriesComponent,
-    CategoriesStartComponent,
     CategoryDetailComponent,
     CategoryItemComponent,
     BlogComponent,
     FooterComponent,
     NotFoundComponent,
-    AboutComponent, HomepageComponent, HttpComponent,
+    AboutComponent, HomepageComponent,
     CalendarComponent,
     PlannerCalendarComponent,
     DragndropComponent
