@@ -9,7 +9,7 @@ import {CategoryService} from "../services/category.service";
 
 export class CategoryListComponent implements OnInit{
   categories: Array<Category>;
-  @Input() selected = true;
+  @Input() unselected = true;
 
   constructor( private categoryService: CategoryService){};
 
@@ -18,6 +18,6 @@ export class CategoryListComponent implements OnInit{
   }
 
   onClicked(){
-    this.selected = false;
+    this.unselected = false;
   }
 }
