@@ -8,7 +8,6 @@ import {Organization} from "../../shared/organization";
 })
 export class ServiceItemComponent implements OnInit {
 
-
   @Input() organization: Organization;
   @Input() organizationId: number;
 

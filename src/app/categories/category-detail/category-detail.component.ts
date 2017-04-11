@@ -35,7 +35,7 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
     );
   }
 
-  onClickedSelectOrganization(){
+  onClickedOrganization(){
     this.unselectedOrganization = false;
   }
 

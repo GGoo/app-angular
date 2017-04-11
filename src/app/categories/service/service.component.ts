@@ -12,7 +12,6 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ServiceComponent implements OnInit, OnDestroy {
 
-
   private subscription: Subscription;
   private organizationIndex: number;
   selectedOrganization: Organization;
@@ -23,14 +22,11 @@ export class ServiceComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private organizationService: OrganizationService, private serviceService: ServiceService) { }
 
   ngOnInit() {
-
-
     this.subscription = this.route.params.subscribe(
       (params: any) => {
         this.organizationIndex = params['idService'];
         this.selectedOrganization = this.organizationService.getOrganization(this.organizationIndex);
         this.services = this.serviceService.getData();
-        console.log("selected org: " + this.selectedOrganization.name);
       }
     );
   }

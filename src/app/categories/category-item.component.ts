@@ -11,7 +11,6 @@ export class CategoryItemComponent  {
 @Input() category: Category;
 @Input() categoryId: number;
 
-
 constructor(){};
 
 }
