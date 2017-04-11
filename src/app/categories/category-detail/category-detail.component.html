@@ -1,11 +1,11 @@
+<div *ngIf = unselectedOrganization>
 <div  class = "list-group-item col-md-4 col-md-offset-3" >
   {{selectedCategory.name}}
 </div>
-
-<ul (click)="onClicked()">
+<ul (click)="onClickedSelectOrganization()">
   <app-service-item *ngFor="let organization of organizations; let i = index"
       [organization]="organization" [organizationId] = i>
   </app-service-item>
 </ul>
-
+</div>
 <router-outlet></router-outlet>

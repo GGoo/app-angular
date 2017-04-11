@@ -17,7 +17,7 @@ import {Organization} from "../../shared/organization";
 })
 export class CategoryDetailComponent implements OnInit, OnDestroy {
 
-  @Input() unselected = true;
+  @Input() unselectedOrganization = true;
   private subscription: Subscription;
   private categoryIndex: number;
   selectedCategory: Category;
@@ -35,8 +35,8 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
     );
   }
 
-  onClicked(){
-    this.unselected = false;
+  onClickedSelectOrganization(){
+    this.unselectedOrganization = false;
   }
 
   ngOnDestroy() {

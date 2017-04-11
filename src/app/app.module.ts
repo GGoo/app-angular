@@ -31,6 +31,7 @@ import { DragndropComponent } from './dragndrop/dragndrop.component';
 import { DndModule } from 'ng2-dnd';
 import { ServiceComponent } from './categories/service/service.component';
 import { ServiceItemComponent } from './categories/service/service-item.component';
+import {ServiceService} from "./services/service.service";
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { ServiceItemComponent } from './categories/service/service-item.componen
     Ng2PageScrollModule.forRoot(),
     DndModule.forRoot()
   ],
-  providers: [CategoryService, HttpService, OrganizationService],
+  providers: [CategoryService, HttpService, OrganizationService, ServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

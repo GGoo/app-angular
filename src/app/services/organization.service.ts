@@ -28,4 +28,8 @@ export class OrganizationService {
     this.organizations = organizationsFromServer;
     return organizationsFromServer;
   }
+
+  getOrganization(id: number) {
+    return this.organizations[id];
+  }
 }
