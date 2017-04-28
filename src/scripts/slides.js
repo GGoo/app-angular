@@ -4,18 +4,18 @@
 var timer;
 
 $(document).ready(function () {
-    
+
 	var biezacy =  $('.gallery-item:first');
     var items = $('.gallery-item');
     var $gallery = $('.gallery-section');
 
     // items.hide();
     // biezacy.show();
-    
+
 	var animuj = function () {
-		
+
         var nastepny = biezacy.next();
-    
+
 		if (nastepny.length === 0) {
             nastepny = $('.gallery-item:first');
         }
@@ -27,9 +27,9 @@ $(document).ready(function () {
         }, 300);
 
         biezacy = nastepny;
-		
+
         timer = setTimeout(animuj, $gallery.attr('data-time'));
     };
-	
-    animuj();
+
+    // animuj();
 });
