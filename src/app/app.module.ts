@@ -32,6 +32,7 @@ import { DndModule } from 'ng2-dnd';
 import { ServiceComponent } from './categories/service/service.component';
 import { ServiceItemComponent } from './categories/service/service-item.component';
 import {ServiceService} from "./services/service.service";
+import { SingleBlogComponent } from './single-blog/single-blog.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {ServiceService} from "./services/service.service";
     PlannerCalendarComponent,
     DragndropComponent,
     ServiceComponent,
-    ServiceItemComponent
+    ServiceItemComponent,
+    SingleBlogComponent
   ],
   imports: [
     BrowserModule,

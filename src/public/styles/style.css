@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Vidaloka');
 .fc {
   direction: ltr;
   text-align: left;
@@ -11008,4 +11009,88 @@ body {
 }
 .calendar-section {
   background-color: #fff;
+}
+.single-blog-section .single-img {
+  border-radius: 15px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.single-blog-section .single-img img {
+  -webkit-transition: all 300ms;
+  -o-transition: all 300ms;
+  transition: all 300ms;
+  width: 100%;
+  opacity: 0.8;
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
+  filter: grayscale(72%);
+}
+.single-blog-section .single-img:hover img {
+  transform: rotate(15deg) scale(2.1);
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+}
+.single-blog-section .single-blog-head {
+  margin-bottom: 7.5px;
+}
+.single-blog-section .single-blog-head:before,
+.single-blog-section .single-blog-head:after {
+  content: " ";
+  display: table;
+}
+.single-blog-section .single-blog-head:after {
+  clear: both;
+}
+.single-blog-section .single-blog-head:before,
+.single-blog-section .single-blog-head:after {
+  content: " ";
+  display: table;
+}
+.single-blog-section .single-blog-head:after {
+  clear: both;
+}
+.single-blog-section .single-blog-left .date-time {
+  color: #a499c9;
+  font-family: 'Vidaloka', sans-serif;
+  font-size: 18px;
+  position: relative;
+  padding-right: 15px;
+  margin-right: 7.5px;
+  float: left;
+}
+.single-blog-section .single-blog-left .date-time span {
+  font-size: 24px;
+  display: block;
+  margin: 0 0 3.75px 0;
+  line-height: 1;
+}
+.single-blog-section .single-blog-left .date-time:after,
+.single-blog-section .single-blog-left .date-time:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: auto;
+  height: 100%;
+}
+.single-blog-section .single-blog-left .date-time:after {
+  border-right: 2px dotted #a499c9;
+}
+.single-blog-section .single-blog-left .date-time:before {
+  border-bottom: 2px dotted #a499c9;
+  width: 100%;
+}
+.single-blog-section .single-blog-right h3 {
+  font-size: 16px;
+  color: #333333;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  line-height: 1.4328;
+  margin: 0;
+}
+.single-blog-section .blog-comment {
+  text-align: justify;
+  font-weight: 300;
 }
