@@ -1,29 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, OnDestroy} from '@angular/core';
+import {Organization} from "../shared/organization";
+import {OrganizationService} from "../services/organization.service";
+import {ServiceService} from "../services/service.service";
+import {Service} from "../shared/service";
+import {Subscription} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-dragndrop',
-  templateUrl: './dragndrop.component.html',
+  templateUrl: 'dragndrop.component.html',
   styleUrls: ['./dragndrop.component.css']
 })
-export class DragndropComponent implements OnInit {
-  availableServices: Array<Service> = [];
+export class DragndropComponent implements OnInit, OnDestroy {
+
+  private subscription: Subscription;
+  private organizationIndex: number;
+  selectedOrganization: Organization;
+  @Input() organization: Organization;
+  @Input() organizationId: number;
+  services: Array<Service>;
   shoppingBasket: Array<Service> = [];
 
-  constructor() {
-    this.availableServices.push(new Service('Upięcie próbne', 1, 35));
-    this.availableServices.push(new Service('Upięcie ślubne', 1, 90));
-    this.availableServices.push(new Service('Strzyżenie damskie z modelowaniem', 1, 90));
-    this.availableServices.push(new Service('Strzyżenie męskie z modelowaniem', 1, 60));
-  }
+  constructor(private route: ActivatedRoute, private organizationService: OrganizationService, private serviceService: ServiceService) { }
 
   ngOnInit() {
+    this.subscription = this.route.params.subscribe(
+      (params: any) => {
+        this.organizationIndex = params['idService'];
+        this.selectedOrganization = this.organizationService.getOrganization(this.organizationIndex);
+        this.services = this.serviceService.getData();
+      }
+    );
+
   }
 
-  removeFromAvailableServices(service) {
-    const index: number = this.availableServices.indexOf(service);
-    if (index !== -1) {
-      this.availableServices.splice(index, 1);
-    }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   addToBasket($event: any) {
@@ -31,28 +43,33 @@ export class DragndropComponent implements OnInit {
     for (const indx in this.shoppingBasket) {
       const service: Service = this.shoppingBasket[indx];
       if (service.name === newService.name) {
-        service.quantity++;
         return;
       }
     }
-    this.shoppingBasket.push(new Service(newService.name, 1, newService.cost));
-    this.shoppingBasket.sort((a: Service, b: Service) => {
-      return a.name.localeCompare(b.name);
-    });
+    this.shoppingBasket.push(newService);
+    this.sortServices(this.shoppingBasket);
   }
 
+  removeFromServices(service) {
+    const index: number = this.services.indexOf(service);
+    if (index !== -1) {
+      this.services.splice(index, 1);
+    }
+  }
 
-  removeFromBasket(service) {
-      const index: number = this.shoppingBasket.indexOf(service);
-      if (index !== -1) {
-        this.shoppingBasket.splice(index, 1);
-      }
+  removeFromBasketToServices(service) {
+    const index: number = this.shoppingBasket.indexOf(service);
+    if (index !== -1) {
+      this.shoppingBasket.splice(index, 1);
+    }
 
-    this.availableServices.push(service);
-    this.shoppingBasket.sort((a: Service, b: Service) => {
-    return a.name.localeCompare(b.name);
-     });
-    this.availableServices.sort((a: Service, b: Service) => {
+    this.services.push(service);
+    this.sortServices(this.shoppingBasket);
+    this.sortServices(this.services);
+  }
+
+  sortServices(array){
+    array.sort((a: Service, b: Service) => {
       return a.name.localeCompare(b.name);
     });
   }
@@ -61,13 +78,9 @@ export class DragndropComponent implements OnInit {
     let cost = 0;
     for (const indx in this.shoppingBasket) {
       const service: Service = this.shoppingBasket[indx];
-      cost += (service.cost * service.quantity);
+      cost += service.cost;
     }
     return cost;
   }
-}
 
-class Service {
-  constructor(public name: string, public quantity: number, public cost: number) {
-  }
 }
