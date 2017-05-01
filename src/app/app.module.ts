@@ -29,7 +29,6 @@ import { CalendarComponent } from 'angular2-fullcalendar/src/calendar/calendar';
 import { PlannerCalendarComponent } from './plannercalendar/plannercalendar.component';
 import { DragndropComponent } from './dragndrop/dragndrop.component';
 import { DndModule } from 'ng2-dnd';
-import { ServiceComponent } from './categories/service/service.component';
 import { ServiceItemComponent } from './categories/service/service-item.component';
 import {ServiceService} from "./services/service.service";
 import { SingleBlogComponent } from './single-blog/single-blog.component';
@@ -53,7 +52,6 @@ import { SingleBlogComponent } from './single-blog/single-blog.component';
     CalendarComponent,
     PlannerCalendarComponent,
     DragndropComponent,
-    ServiceComponent,
     ServiceItemComponent,
     SingleBlogComponent
   ],
