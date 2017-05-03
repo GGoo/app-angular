@@ -83,4 +83,8 @@ export class DragndropComponent implements OnInit, OnDestroy {
     return cost;
   }
 
+  saveBasket() {
+    // to do
+}
+
 }
