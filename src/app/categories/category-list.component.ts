@@ -11,7 +11,7 @@ export class CategoryListComponent implements OnInit{
   categories: Array<Category>;
   @Input() unselected = true;
 
-  constructor( private categoryService: CategoryService){};
+  constructor(private categoryService: CategoryService){};
 
   ngOnInit() {
    this.categories = this.categoryService.getData();

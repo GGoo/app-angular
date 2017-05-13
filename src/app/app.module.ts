@@ -32,6 +32,8 @@ import { DndModule } from 'ng2-dnd';
 import { ServiceItemComponent } from './categories/service/service-item.component';
 import {ServiceService} from "./services/service.service";
 import { SingleBlogComponent } from './single-blog/single-blog.component';
+import { BasketComponent } from './basket/basket.component';
+import {BasketService} from "./services/basket.service";
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { SingleBlogComponent } from './single-blog/single-blog.component';
     PlannerCalendarComponent,
     DragndropComponent,
     ServiceItemComponent,
-    SingleBlogComponent
+    SingleBlogComponent,
+    BasketComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,7 @@ import { SingleBlogComponent } from './single-blog/single-blog.component';
     Ng2PageScrollModule.forRoot(),
     DndModule.forRoot()
   ],
-  providers: [CategoryService, HttpService, OrganizationService, ServiceService],
+  providers: [CategoryService, HttpService, OrganizationService, ServiceService, BasketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
