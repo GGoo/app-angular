@@ -9,14 +9,14 @@ export class BasketService {
   private subscription: Subscription;
 
  private baseUrl: string = 'http://137.74.116.6/rest/users/1/package';
-  //private baseUrl: string = 'https://package-632de.firebaseio.com/';
+//  private baseUrl: string = 'https://package-632de.firebaseio.com/';
   package: Package;
 
   constructor(private http: Http) { }
 
   getData(){
     const packagesFromServer = [];
-    this.http.get(`${this.baseUrl}/.json`)
+    this.http.get(`${this.baseUrl}`)
       .map(
         (response: Response) => {
           return response.json();

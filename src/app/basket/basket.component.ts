@@ -14,7 +14,7 @@ package: Package;
   constructor(private basketService: BasketService) { }
 
   ngOnInit() {
-   // this.package = this.basketService.getData();
+   this.basketService.getData();
     console.log(this.package);
   }
 
