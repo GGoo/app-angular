@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -32,6 +32,8 @@ import { DndModule } from 'ng2-dnd';
 import { ServiceItemComponent } from './categories/service/service-item.component';
 import {ServiceService} from "./services/service.service";
 import { SingleBlogComponent } from './single-blog/single-blog.component';
+import { TodoComponent } from './todo/todo.component';
+import { TodoDataService } from './todo/todo-data.service';
 
 @NgModule({
   declarations: [
@@ -53,17 +55,19 @@ import { SingleBlogComponent } from './single-blog/single-blog.component';
     PlannerCalendarComponent,
     DragndropComponent,
     ServiceItemComponent,
-    SingleBlogComponent
+    SingleBlogComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     routing,
     Ng2PageScrollModule.forRoot(),
     DndModule.forRoot()
   ],
-  providers: [CategoryService, HttpService, OrganizationService, ServiceService],
+  providers: [CategoryService, HttpService, OrganizationService, ServiceService, TodoDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

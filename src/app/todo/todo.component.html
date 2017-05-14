@@ -1,0 +1,22 @@
+<section class="section todo-section">
+    <div class="container">
+        <header>
+            <h2>LISTA ZADAŃ</h2>
+        </header>
+        <div *ngIf="todos.length > 0">
+            <ul class="todo-list list-inline">
+                <li *ngFor="let todo of todos" [class.complete]="todo.complete" data-id="{{todo.id}}">
+                    <span class="label label-default" [class.label-success]="todo.complete">
+                        <label for="todo-{{todo.id}}">
+                            <input (change)="toggleTodoComplete(todo)" type="checkbox" class="hidden" id="todo-{{todo.id}}" [checked]="todo.complete">{{todo.complete}} -> {{todo.label}}
+                        </label>
+                    </span>
+                </li>
+            </ul>
+
+        </div>
+        <div *ngIf="todos.length == 0">
+            Panuje wolność, nie ma już nic! :D
+        </div>
+    </div>
+</section>
