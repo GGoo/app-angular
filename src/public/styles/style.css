@@ -11010,6 +11010,11 @@ body {
 .calendar-section {
   background-color: #fff;
 }
+.single-blog-section {
+  background-color: #fff;
+  background-color: white;
+  padding-top: 5%;
+}
 .single-blog-section .single-img {
   border-radius: 15px;
   margin-bottom: 15px;
