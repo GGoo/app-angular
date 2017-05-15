@@ -1,2 +1,48 @@
+<div class=" text-center">
+  <div class="col-md-5 col-sm-12">
+    <div class="bigcart"></div>
+    <img src="../../images/basket/love.png">
+    <h1>Twój pakiet</h1>
+    <p>
+      To jest Twoj pakiet ślubny, a w nim wybrane przez Ciebie usługi.
+    </p>
+  </div>
 
-<p>basket</p>
+  <div class="col-md-7 col-sm-12 text-left">
+    <ul>
+      <li class="row list-inline columnCaptions">
+        <span>Lp.</span>
+        <span>Usługa</span>
+        <span>Cena</span>
+      </li>
+      <li class="row" >
+        <span class="quantity">1</span>
+        <span class="itemName"></span>
+        <span class="popbtn"><a class="arrow"></a></span>
+        <span class="price">$49.95</span>
+      </li>
+      <li class="row">
+        <span class="quantity">50</span>
+        <span class="itemName">Party Cups</span>
+        <span class="popbtn"><a class="arrow"></a></span>
+        <span class="price">$5.00</span>
+      </li>
+      <li class="row totals">
+        <span class="itemName">Razem:</span>
+        <span class="price">{{package.totalCost}}</span>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- The popover content -->
+
+<div id="popover" style="display: none">
+  <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+  <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+</div>
+
+<!-- JavaScript includes -->
+
+

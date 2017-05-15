@@ -16,7 +16,6 @@ export class CategoryService {
 
   getData(){
     const categoriesFromServer = [];
-    // this.http.get(`${this.baseUrl}/${this.id}.json`)
     this.http.get(`${this.baseUrl}`)
       .map(
         (response: Response) => {

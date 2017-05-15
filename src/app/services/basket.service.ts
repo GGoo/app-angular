@@ -6,16 +6,14 @@ import {Package} from "../shared/package";
 @Injectable()
 export class BasketService {
 
-  private subscription: Subscription;
-
  private baseUrl: string = 'http://137.74.116.6/rest/users/1/package';
-//  private baseUrl: string = 'https://package-632de.firebaseio.com/';
+//private baseUrl: string = 'https://basket-211b4.firebaseio.com/.json';
   package: Package;
 
   constructor(private http: Http) { }
 
   getData(){
-    const packagesFromServer = [];
+
     this.http.get(`${this.baseUrl}`)
       .map(
         (response: Response) => {
@@ -25,11 +23,11 @@ export class BasketService {
       (data)=> {
         console.log(data);
         this.package = data;
-        for (let key in data)
-          packagesFromServer.push(data[key]);
+        console.log(this.package);
       }
     );
-    //this.packages = packagesFromServer;
+
+
     return this.package;
   }
 
