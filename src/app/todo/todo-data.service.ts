@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './todo';
-
 import { Http, Response, Jsonp, Headers, RequestOptions } from "@angular/http";
 import 'rxjs/Rx';
 import { Subscription } from "rxjs";
@@ -15,7 +14,7 @@ export class TodoDataService {
 
     constructor(private http: Http, private jsonp: Jsonp) {
         for (var i = 0; i < 10; ++i) {
-            this.addTodo(new Todo({ label: 'Ala ma kota' + this.lastId }));
+            this.addTodo(new Todo({ label: 'zadanie' + this.lastId }));
         }
         // this.getData();
     }

@@ -22,6 +22,7 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
+        "./scripts/jquery-ui.js",
         "../node_modules/moment/min/moment-with-locales.min.js",
         "../node_modules/fullcalendar/dist/fullcalendar.min.js",
         "../node_modules/fullcalendar/dist/locale/pl.js"
