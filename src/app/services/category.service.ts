@@ -3,11 +3,11 @@ import {Category} from "../shared";
 
 import {Http, Response} from "@angular/http";
 import 'rxjs/Rx';
-import {Subscription} from "rxjs";
+
 
 @Injectable()
 export class CategoryService {
-  private subscription: Subscription;
+
   private baseUrl: string = 'http://137.74.116.6/rest/categories';
  // private baseUrl: string = 'https://ajdutestjsonow.firebaseio.com/.json';
   categories : Category[];

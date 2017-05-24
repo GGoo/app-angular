@@ -15,34 +15,19 @@
         <span>Usługa</span>
         <span>Cena</span>
       </li>
-      <li class="row" >
-        <span class="quantity">1</span>
-        <span class="itemName"></span>
-        <span class="popbtn"><a class="arrow"></a></span>
-        <span class="price">$49.95</span>
+      <div ng-if="services !== null">
+      <li class="row" *ngFor="let service of services; let i = index">
+        <span class="quantity">{{ i+1 }}</span>
+        <span class="itemName">{{ service?.name }}</span>
+        <span class="price">{{ service?.cost }}</span>
       </li>
-      <li class="row">
-        <span class="quantity">50</span>
-        <span class="itemName">Party Cups</span>
-        <span class="popbtn"><a class="arrow"></a></span>
-        <span class="price">$5.00</span>
-      </li>
+      </div>
       <li class="row totals">
         <span class="itemName">Razem:</span>
-        <span class="price">{{package.totalCost}}</span>
+        <span class="price" >{{ package?.totalCost }}</span>
       </li>
     </ul>
   </div>
-
 </div>
-
-<!-- The popover content -->
-
-<div id="popover" style="display: none">
-  <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-  <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-</div>
-
-<!-- JavaScript includes -->
 
 
