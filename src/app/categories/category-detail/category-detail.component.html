@@ -1,5 +1,7 @@
+<div class = "container ">
+  <div class ="col-lg-6">
 <div *ngIf = unselectedOrganization>
-<div  class = "list-group-item col-md-4 col-md-offset-3" >
+<div  class = "list-group-item col-lg-6 col-lg-offset-2" >
   {{selectedCategory.name}}
 </div>
 <ul (click)="onClickedOrganization()">
@@ -7,5 +9,7 @@
       [organization]="organization" [organizationId] = i>
   </app-service-item>
 </ul>
+</div>
+</div>
 </div>
 <router-outlet></router-outlet>

@@ -1,0 +1,33 @@
+<div class=" text-center">
+  <div class="col-md-5 col-sm-12">
+    <div class="bigcart"></div>
+    <img src="../../images/basket/love.png">
+    <h1>Twój pakiet</h1>
+    <p>
+      To jest Twoj pakiet ślubny, a w nim wybrane przez Ciebie usługi.
+    </p>
+  </div>
+
+  <div class="col-md-7 col-sm-12 text-left">
+    <ul>
+      <li class="row list-inline columnCaptions">
+        <span>Lp.</span>
+        <span>Usługa</span>
+        <span>Cena</span>
+      </li>
+      <div ng-if="services !== null">
+      <li class="row" *ngFor="let service of services; let i = index">
+        <span class="quantity">{{ i+1 }}</span>
+        <span class="itemName">{{ service?.name }}</span>
+        <span class="price">{{ service?.cost }}</span>
+      </li>
+      </div>
+      <li class="row totals">
+        <span class="itemName">Razem:</span>
+        <span class="price" >{{ package?.totalCost }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+

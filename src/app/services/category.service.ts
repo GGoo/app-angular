@@ -3,20 +3,20 @@ import {Category} from "../shared";
 
 import {Http, Response} from "@angular/http";
 import 'rxjs/Rx';
-import {Subscription} from "rxjs";
+
 
 @Injectable()
 export class CategoryService {
-  private subscription: Subscription;
-  private baseUrl: string = 'https://ajdutestjsonow.firebaseio.com';
+
+  private baseUrl: string = 'http://137.74.116.6/rest/categories';
+ // private baseUrl: string = 'https://ajdutestjsonow.firebaseio.com/.json';
   categories : Category[];
 
   constructor(private http: Http) { }
 
   getData(){
     const categoriesFromServer = [];
-    // this.http.get(`${this.baseUrl}/${this.id}.json`)
-    this.http.get(`${this.baseUrl}/.json`)
+    this.http.get(`${this.baseUrl}`)
       .map(
         (response: Response) => {
           return response.json();

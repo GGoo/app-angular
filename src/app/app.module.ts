@@ -32,8 +32,13 @@ import { DndModule } from 'ng2-dnd';
 import { ServiceItemComponent } from './categories/service/service-item.component';
 import {ServiceService} from "./services/service.service";
 import { SingleBlogComponent } from './single-blog/single-blog.component';
+
 import { TodoComponent } from './todo/todo.component';
 import { TodoDataService } from './todo/todo-data.service';
+
+import { BasketComponent } from './basket/basket.component';
+import {BasketService} from "./services/basket.service";
+
 
 @NgModule({
   declarations: [
@@ -56,7 +61,9 @@ import { TodoDataService } from './todo/todo-data.service';
     DragndropComponent,
     ServiceItemComponent,
     SingleBlogComponent,
-    TodoComponent
+    TodoComponent,
+    BasketComponent,
+    BasketService
   ],
   imports: [
     BrowserModule,
@@ -67,7 +74,7 @@ import { TodoDataService } from './todo/todo-data.service';
     Ng2PageScrollModule.forRoot(),
     DndModule.forRoot()
   ],
-  providers: [CategoryService, HttpService, OrganizationService, ServiceService, TodoDataService],
+  providers: [CategoryService, HttpService, OrganizationService, ServiceService, TodoDataService, BasketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

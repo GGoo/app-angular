@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -6,7 +6,7 @@ import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
   templateUrl: './gallery.component.html',
   // styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent implements OnInit, AfterViewInit {
+export class GalleryComponent implements OnInit, AfterViewInit, OnDestroy {
   private slides:Array<any> = [];
   private time:any = 4000;
   private currentSlide: any;
@@ -139,6 +139,10 @@ export class GalleryComponent implements OnInit, AfterViewInit {
         return transitions[t];
       }
     }
+  }
+
+  ngOnDestroy(){
+
   }
 
 }
