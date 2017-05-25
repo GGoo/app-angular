@@ -37,7 +37,9 @@ import { TodoComponent } from './todo/todo.component';
 import { TodoDataService } from './todo/todo-data.service';
 
 import { BasketComponent } from './basket/basket.component';
-import {BasketService} from "./services/basket.service";
+import  { BasketPackageService } from './services/basket-package.service'
+
+
 
 
 @NgModule({
@@ -63,7 +65,6 @@ import {BasketService} from "./services/basket.service";
     SingleBlogComponent,
     TodoComponent,
     BasketComponent,
-    BasketService
   ],
   imports: [
     BrowserModule,
@@ -74,7 +75,7 @@ import {BasketService} from "./services/basket.service";
     Ng2PageScrollModule.forRoot(),
     DndModule.forRoot()
   ],
-  providers: [CategoryService, HttpService, OrganizationService, ServiceService, TodoDataService, BasketService],
+  providers: [CategoryService, HttpService, OrganizationService, ServiceService, TodoDataService, BasketPackageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

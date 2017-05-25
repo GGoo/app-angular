@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {Package} from "../shared/package";
 import {Service} from "../shared/service";
-import {BasketService} from "../services/basket.service";
+import {BasketPackageService} from "../services/basket-package.service";
 import "rxjs/Rx";
 
 @Component({
@@ -14,11 +14,11 @@ export class BasketComponent implements OnInit {
 package: Package;
 services: Service[];
 
-  constructor(private basketService: BasketService ){ }
+  constructor(private basketPackageService: BasketPackageService ){ }
 
   ngOnInit() {
     const servicesFromServer = [];
-    this.basketService.getData().subscribe(
+    this.basketPackageService.getData().subscribe(
       (result) =>{
       this.package = result.json();
         console.log(this.package);
