@@ -4,6 +4,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { PlannerCalendarComponent } from './plannercalendar/plannercalendar.component';
 import { DragndropComponent } from './dragndrop/dragndrop.component';
 import { BasketComponent } from './basket/basket.component';
+import { BlogComponent } from './blog/blog/blog.component';
 
 import { CATEGORIES_ROUTES } from './categories.routes';
 
@@ -14,7 +15,8 @@ const APP_ROUTES: Routes = [
   { path: 'categories', component: CategoriesComponent, children: CATEGORIES_ROUTES },
   { path: 'calendar', component: PlannerCalendarComponent },
   { path: 'dragndrop', component: DragndropComponent },
-  { path: 'basket', component: BasketComponent }
+  { path: 'basket', component: BasketComponent },
+  { path: 'blog', component: BlogComponent }
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);
