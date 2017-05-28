@@ -17,7 +17,7 @@ import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { CategoryDetailComponent } from './categories/category-detail/category-detail.component';
 import { CategoryItemComponent } from './categories/category-item.component';
 
-import { BlogComponent } from './blog/blog.component';
+import { BlogComponent } from './blog/blog/blog.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
@@ -37,8 +37,9 @@ import { TodoComponent } from './todo/todo.component';
 import { TodoDataService } from './todo/todo-data.service';
 
 import { BasketComponent } from './basket/basket.component';
-import  { BasketPackageService } from './services/basket-package.service';
+import { BasketPackageService } from './services/basket-package.service';
 import { CalendarComponent } from './calendar/calendar.component'
+import { BlogService } from './services/blog.service';
 
 
 
@@ -77,7 +78,7 @@ import { CalendarComponent } from './calendar/calendar.component'
     Ng2PageScrollModule.forRoot(),
     DndModule.forRoot()
   ],
-  providers: [CategoryService, HttpService, OrganizationService, ServiceService, TodoDataService, BasketPackageService],
+  providers: [CategoryService, HttpService, OrganizationService, ServiceService, TodoDataService, BasketPackageService, BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-3">
+    <div id="sidebar">
+      <div class="block">
+        <h4>Blogi</h4>
+        <ul>
+          <li *ngFor="let blog of blogs"><a routerLink="/blogs/{{blog.id}}">{{blog.name}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <h4>Najnowsze posty</h4>
+    <div class="panel-body">
+      <div *ngFor="let blog of blogs" class="panel panel-default">
+        <div class="panel-body">
+          {{blog.id}}<br>
+          {{blog.name}}<br>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
