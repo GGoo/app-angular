@@ -7,50 +7,25 @@ import { Subscription } from "rxjs";
 @Injectable()
 export class TodoDataService {
     private subscription: Subscription;
-    private baseUrl: string = 'http://dev.markitondemand.com/MODApis/Api/v2/Quote/jsonp?symbol=AAPL&callback=myRun';//'http://137.74.116.6/rest/todos';
+    private baseUrl: string = 'http://137.74.116.6/rest/todoTasks';
 
     lastId: number = 0;
     todos: Todo[] = [];
 
     constructor(private http: Http, private jsonp: Jsonp) {
-        for (var i = 0; i < 10; ++i) {
-            this.addTodo(new Todo({ label: 'zadanie' + this.lastId }));
-        }
-        // this.getData();
+        this.getData();
     }
 
-    getData() {
-        // let headers: Headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // headers.append('Access-Control-Allow-Origin', '*');
+    getData(): void {
+        this.http.get(`${this.baseUrl}`)
+                .map((response: Response) => {  return response.json()._embedded.todoTasks })
+                .subscribe((data) => {
+                    for (let i = 0; i < data.length; i++) {
+                        data[i].id = i;
 
-        var options = new RequestOptions({
-                'method': 'GET',
-                'headers': new Headers({
-                    'Accept': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                })
-            });
-
-        console.log(options);
-        this.jsonp.request(`${this.baseUrl}`, options)
-            .map(response => { response.json().data })
-            .subscribe((data) => {
-                console.log('response', data);
-            }, (error) => console.log('error', error)
-            );
-          // .map(
-          //   (response: Response) => {
-          //     return response.json();
-          //   }
-          // ).subscribe(
-          // (data) => {
-          //   for (let key in data)
-          //     this.todos.push(data[key]);
-          // }
-          //   );
-
-        return this.todos;
+                        this.addTodo(new Todo(data[i]));
+                    }
+                }, (error) => console.log('error', error));
     }
 
     addTodo(todo: Todo): TodoDataService {
