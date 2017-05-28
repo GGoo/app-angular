@@ -16,7 +16,7 @@ const APP_ROUTES: Routes = [
   { path: 'calendar', component: PlannerCalendarComponent },
   { path: 'dragndrop', component: DragndropComponent },
   { path: 'basket', component: BasketComponent },
-  { path: 'blog', component: BlogComponent }
+  { path: 'blog', component: BlogComponent },
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);
