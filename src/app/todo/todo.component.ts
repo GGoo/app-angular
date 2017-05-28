@@ -11,35 +11,37 @@ declare var $: any;
   // providers: [ TodoDataService ]
 })
 export class TodoComponent implements OnInit, AfterViewInit {
-    newTodo: Todo = new Todo({
-        label: 'ala ma kota',
-        complete: false
-    });
+    show = true;
+
+    btnText = '';
 
     constructor(private todoDataService: TodoDataService) {
-        // this.addTodo();
+        this.toggleTodos()
     }
 
     ngAfterViewInit () {
-        $('.fc-event').each(function() {
-            $(this).data('eventObject', {
-                title: $.trim($(this).text())
-            });
+        setTimeout(function() {
+            $('.fc-event').each(function() {
+                $(this).data('eventObject', {
+                    title: $.trim($(this).text())
+                });
 
-            $(this).draggable({
-                zIndex: 999,
-                revert: true,
-                revertDuration: 0
+                $(this).draggable({
+                    zIndex: 999,
+                    revert: true,
+                    revertDuration: 0
+                });
             });
-        });
+        }, 1000);
     }
 
-    addTodo() {
-        this.todoDataService.addTodo(this.newTodo);
-        this.newTodo = new Todo({
-            label: 'ala ma kota ' + this.todoDataService.lastId,
-            complete: false
-        });
+    toggleTodos(): void {
+        this.show = !this.show;
+
+        switch (this.show) {
+            case true: this.btnText = 'Ukryj'; break;
+            case false: this.btnText = 'Pokaż'; break;
+        }
     }
 
     toggleTodoComplete(todo) {

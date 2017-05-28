@@ -11101,3 +11101,26 @@ body {
 .todo-section {
   background-color: white;
 }
+.widget-label {
+  display: inline-block;
+  padding: 8px;
+  border: 1px solid #d2d2d2;
+  background-color: #fff;
+  color: #888;
+  margin-bottom: 10px;
+  line-height: 1.1;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+}
+.widget-label:hover {
+  color: #888;
+  background-color: #eee;
+  cursor: drag;
+}
+.widget-label label {
+  margin-bottom: 0px;
+  font-weight: inherit;
+}
+.widget-label.widget-success {
+  display: none;
+}

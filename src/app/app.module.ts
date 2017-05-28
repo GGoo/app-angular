@@ -25,7 +25,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { HttpService } from './services/http.service';
 import {OrganizationService} from "./services/organization.service";
 
-import { CalendarComponent } from 'angular2-fullcalendar/src/calendar/calendar';
+// import { CalendarComponent } from 'angular2-fullcalendar/src/calendar/calendar';
 import { PlannerCalendarComponent } from './plannercalendar/plannercalendar.component';
 import { DragndropComponent } from './dragndrop/dragndrop.component';
 import { DndModule } from 'ng2-dnd';
@@ -38,6 +38,7 @@ import { TodoDataService } from './todo/todo-data.service';
 
 import { BasketComponent } from './basket/basket.component';
 import { BasketPackageService } from './services/basket-package.service';
+import { CalendarComponent } from './calendar/calendar.component'
 import { BlogService } from './services/blog.service';
 
 
@@ -66,6 +67,7 @@ import { BlogService } from './services/blog.service';
     SingleBlogComponent,
     TodoComponent,
     BasketComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, AfterViewInit } from '@angular/core';
+import * as moment from 'moment/moment';
 
 declare var $: any;
 
@@ -8,7 +9,17 @@ declare var $: any;
   templateUrl: './plannercalendar.component.html'
 })
 export class PlannerCalendarComponent implements OnInit, AfterViewInit {
-  constructor(private element : ElementRef) { }
+  private today: String = moment().format('YYYY-MM-DD');
+  submitted = false;
+
+  constructor(private element : ElementRef) {
+    this.calendarOptions['now'] = this.today;
+    this.calendarOptions['defaultDate'] = this.today;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+  }
 
   ngOnInit() {
   }
@@ -18,7 +29,7 @@ export class PlannerCalendarComponent implements OnInit, AfterViewInit {
 
   calendarOptions:Object = {
         droppable: true,
-        // dropAccept: '.fc-event',
+        dropAccept: '.fc-event',
         // eventOverlap: false,
         header: {
           left: 'prevYear,prev,next,nextYear today',
@@ -48,13 +59,15 @@ export class PlannerCalendarComponent implements OnInit, AfterViewInit {
         },
         businessHours: true,
         editable: true,
-        eventClick: function(calEvent, jsEvent, view) {
+        eventClick: (calEvent, jsEvent, view) => {
+            console.log(jsEvent.target);
             console.log('Event: ' + calEvent.title);
             console.log('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
             console.log('View: ' + view.name);
+            let $parent = $(jsEvent.target).closest('a');
 
             // change the border color just for fun
-            $(this).css('border-color', 'red');
+            $parent.css('border-color', 'red');
         },
         drop: function(date, jsEvent, ui) {
           console.log('drop', arguments);
@@ -65,12 +78,44 @@ export class PlannerCalendarComponent implements OnInit, AfterViewInit {
           copiedEventObject.start = date;
 
           $('angular2-fullcalendar').fullCalendar('renderEvent', copiedEventObject, true);
+
+          $(this).remove();
         },
         eventReceive: function(event) { // called when a proper external event is dropped
           console.log('eventReceive', event);
         },
         eventDrop: function(event) { // called when an event (already on the calendar) is moved
           console.log('eventDrop', event);
+        },
+        selectable: true,
+        selectHelper: true,
+        /*
+          when user select timeslot this option code will execute.
+          It has three arguments. Start,end and allDay.
+          Start means starting time of event.
+          End means ending time of event.
+          allDay means if events is for entire day or not.
+        */
+        select: (start, end, allDay) => {
+
+          /*
+            after selection user will be promted for enter title for event.
+          */
+          let title = prompt('Event Title:');
+          /*
+            if title is enterd calendar will add title and event into fullCalendar.
+          */
+          if (title) {
+            $('angular2-fullcalendar').fullCalendar('renderEvent',
+              {
+                title: title,
+                start: start,
+                end: end
+              }
+            );
+          }
+
+          $('angular2-fullcalendar').fullCalendar('unselect');
         },
         events: [
           {
