@@ -38,8 +38,9 @@ import { TodoDataService } from './todo/todo-data.service';
 
 import { BasketComponent } from './basket/basket.component';
 import { BasketPackageService } from './services/basket-package.service';
-import { CalendarComponent } from './calendar/calendar.component'
+import { CalendarComponent } from './calendar/calendar.component';
 import { BlogService } from './services/blog.service';
+import { PostComponent } from './blog/post/post.component';
 
 
 
@@ -68,6 +69,7 @@ import { BlogService } from './services/blog.service';
     TodoComponent,
     BasketComponent,
     CalendarComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,
