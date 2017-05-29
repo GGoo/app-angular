@@ -17,7 +17,7 @@ import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { CategoryDetailComponent } from './categories/category-detail/category-detail.component';
 import { CategoryItemComponent } from './categories/category-item.component';
 
-import { BlogComponent } from './blog/blog.component';
+import { BlogComponent } from './blog/blog/blog.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
@@ -25,7 +25,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { HttpService } from './services/http.service';
 import {OrganizationService} from "./services/organization.service";
 
-import { CalendarComponent } from 'angular2-fullcalendar/src/calendar/calendar';
+// import { CalendarComponent } from 'angular2-fullcalendar/src/calendar/calendar';
 import { PlannerCalendarComponent } from './plannercalendar/plannercalendar.component';
 import { DragndropComponent } from './dragndrop/dragndrop.component';
 import { DndModule } from 'ng2-dnd';
@@ -37,7 +37,10 @@ import { TodoComponent } from './todo/todo.component';
 import { TodoDataService } from './todo/todo-data.service';
 
 import { BasketComponent } from './basket/basket.component';
-import  { BasketPackageService } from './services/basket-package.service'
+import { BasketPackageService } from './services/basket-package.service';
+import { CalendarComponent } from './calendar/calendar.component';
+import { BlogService } from './services/blog.service';
+import { PostComponent } from './blog/post/post.component';
 
 
 
@@ -65,6 +68,8 @@ import  { BasketPackageService } from './services/basket-package.service'
     SingleBlogComponent,
     TodoComponent,
     BasketComponent,
+    CalendarComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +80,7 @@ import  { BasketPackageService } from './services/basket-package.service'
     Ng2PageScrollModule.forRoot(),
     DndModule.forRoot()
   ],
-  providers: [CategoryService, HttpService, OrganizationService, ServiceService, TodoDataService, BasketPackageService],
+  providers: [CategoryService, HttpService, OrganizationService, ServiceService, TodoDataService, BasketPackageService, BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

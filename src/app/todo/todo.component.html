@@ -1,14 +1,15 @@
 <section class="section todo-section">
     <div class="container">
         <header>
+            <button class="btn btn-default pull-right" (click)="toggleTodos()">{{btnText}}</button>
             <h2>LISTA ZADAŃ</h2>
         </header>
-        <div *ngIf="todos.length > 0">
+        <div *ngIf="todos.length > 0" [class.hidden]="!show">
             <ul class="todo-list list-inline">
                 <li *ngFor="let todo of todos" [class.complete]="todo.complete" data-id="{{todo.id}}">
-                    <span class="label label-default fc-event" [class.label-success]="todo.complete">
+                    <span class="widget-label fc-event" [class.widget-success]="todo.complete">
                         <label for="todo-{{todo.id}}">
-                            <input (change)="toggleTodoComplete(todo)" type="checkbox" class="hidden" id="todo-{{todo.id}}" [checked]="todo.complete">{{todo.complete}} -> {{todo.label}}
+                            <input type="checkbox" class="hidden" id="todo-{{todo.id}}" [checked]="todo.complete"> {{todo.name}}
                         </label>
                     </span>
                 </li>
