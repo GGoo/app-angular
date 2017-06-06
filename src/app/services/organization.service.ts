@@ -6,6 +6,7 @@ import {Organization} from "../shared/organization";
 export class OrganizationService {
 
   private baseUrl: string = 'https://organization-b3486.firebaseio.com/';
+
   private id: number = 1;
   organizations : Organization [];
 

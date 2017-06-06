@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-// import {Service} from "../shared/service";
 import {Http, Response} from "@angular/http";
 
 @Injectable()
 export class ServiceService {
 
-  private baseUrl: string = 'https://serivces-fb737.firebaseio.com/';
+  private baseUrl: string = 'http://137.74.116.6/rest/services';
   services : any [];
 
   constructor(private http: Http) { }
@@ -13,7 +12,7 @@ export class ServiceService {
   getData(){
     const servicesFromServer = [];
 
-    this.http.get(`${this.baseUrl}/.json`)
+    this.http.get(`${this.baseUrl}`)
       .map(
         (response: Response) => {
           return response.json();

@@ -1,5 +1,4 @@
 import {Component, OnInit} from "@angular/core";
-import {Package} from "../shared/package";
 import {Service} from "../shared/service";
 import {BasketPackageService} from "../services/basket-package.service";
 import "rxjs/Rx";
@@ -11,20 +10,24 @@ import "rxjs/Rx";
 })
 export class BasketComponent implements OnInit {
 
-package: Package;
-services: Service[];
+  services: Service[];
+  service: Service;
 
   constructor(private basketPackageService: BasketPackageService ){ }
 
   ngOnInit() {
-    const servicesFromServer = [];
-    this.basketPackageService.getData().subscribe(
-      (result) =>{
-      this.package = result.json();
-        console.log(this.package);
-        for (let key in this.package.services) servicesFromServer.push(this.package.services[key]);
-      }
-    )
-   this.services= servicesFromServer;
+   //this.services= this.basketPackageService.getData();
+  }
+
+  clicked(service : Service){
+    this.service = service;
+}
+  totalCost(){
+    let cost = 0;
+    for (const indx in this.services) {
+      const service: Service = this.services[indx];
+      cost += service.cost;
+    }
+    return cost;
   }
 }

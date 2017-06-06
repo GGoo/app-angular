@@ -5,6 +5,7 @@ import {ServiceService} from "../services/service.service";
 import {Service} from "../shared/service";
 import {Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
+import {BasketPackageService} from "../services/basket-package.service";
 
 @Component({
   selector: 'app-dragndrop',
@@ -21,7 +22,8 @@ export class DragndropComponent implements OnInit, OnDestroy {
   services: Array<Service>;
   shoppingBasket: Array<Service> = [];
 
-  constructor(private route: ActivatedRoute, private organizationService: OrganizationService, private serviceService: ServiceService) { }
+  constructor(private route: ActivatedRoute, private organizationService: OrganizationService,
+              private serviceService: ServiceService, private basketPackageService: BasketPackageService) { }
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe(
@@ -31,7 +33,6 @@ export class DragndropComponent implements OnInit, OnDestroy {
         this.services = this.serviceService.getData();
       }
     );
-
   }
 
   ngOnDestroy() {
@@ -83,8 +84,8 @@ export class DragndropComponent implements OnInit, OnDestroy {
     return cost;
   }
 
-  saveBasket() {
-    // to do
-}
+  saveBasket(services : Service[]) {
+    this.basketPackageService. storeServices(services);
+  }
 
 }

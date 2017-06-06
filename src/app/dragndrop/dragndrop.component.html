@@ -24,10 +24,6 @@
         <div *ngFor="let service of shoppingBasket" class="panel panel-default">
           <div class="panel-body">
             {{service.name}}<br>(koszt: {{service.cost}} zł)
-
-
-
-
             <button class="delete" (click)="removeFromBasketToServices(service)">x</button>
           </div>
         </div>
