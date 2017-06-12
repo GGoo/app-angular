@@ -41,6 +41,7 @@ import { BasketPackageService } from './services/basket-package.service';
 import { CalendarComponent } from './calendar/calendar.component';
 import { BlogService } from './services/blog.service';
 import { PostComponent } from './blog/post/post.component';
+import { ModalcalendarComponent } from './modalcalendar/modalcalendar.component';
 
 
 
@@ -70,6 +71,7 @@ import { PostComponent } from './blog/post/post.component';
     BasketComponent,
     CalendarComponent,
     PostComponent,
+    ModalcalendarComponent,
   ],
   imports: [
     BrowserModule,
