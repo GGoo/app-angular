@@ -2,6 +2,70 @@
 
 <section class="section calendar-section">
     <div class="container">
+        <a class="btn btn-default" (click)="toggleModal()">Dodaj wydarzenie</a>
+        <div class="clearfix"></div>
         <angular2-fullcalendar [options]="calendarOptions"></angular2-fullcalendar>
     </div>
+    <div class="modal fade" id="app-modalcalendar" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" (click)="closeModal()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+
+                <div class="modal-body">
+                    <!-- TUTAJ MA BYC FORMULARZ!!!!! -->
+                    <form action="">
+                        <div class="hidden" *ngIf="task?.id">
+                            <input type="hidden" value="{{task.id}}">
+                        </div>
+
+                        <div class="form-group" >
+                            <label for="name" class="label-control">Nazwa wydarzenia</label>
+                            <input name="name" id="name" [(ngModel)]="task.name" class="form-control" type="text">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description" class="label-control">Opis wydarzenia</label>
+                            <input name="description" id="description" [(ngModel)]="task.description" class="form-control" type="text">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dDate" class="label-control">Data rozpoczęcia</label>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input [(ngModel)]="task.dDate" id="dDate" name="dDate" class="form-control" type="date" (ngModelChange)="updateTaskDate()">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input [(ngModel)]="task.dTime" id="dTime" name="dTime" class="form-control" type="time" (ngModelChange)="updateTaskDate()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ddDate" class="label-control">Data zakończenia</label>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input [(ngModel)]="task.ddDate" id="ddDate" name="ddDate" class="form-control" type="date" (ngModelChange)="updateTaskDueDate()">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input [(ngModel)]="task.ddTime" id="ddTime" name="ddTime" class="form-control" type="time" (ngModelChange)="updateTaskDueDate()">
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    {{ task | json }}
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" (click)="closeModal()">Zamknij</button>
+                    <button type="button" class="btn btn-primary" (click)="saveChanges($event)">Zapisz zmiany</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
 </section>

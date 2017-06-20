@@ -1,7 +1,16 @@
 import { Component, ElementRef, OnInit, AfterViewInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import * as moment from 'moment/moment';
 
 declare var $: any;
+
+export interface Task {
+  id?: Number,
+  name: String,
+  description?: String,
+  date: String,
+  dueDate: String
+}
 
 @Component({
   moduleId: module.id,
@@ -10,21 +19,117 @@ declare var $: any;
 })
 export class PlannerCalendarComponent implements OnInit, AfterViewInit {
   private today: String = moment().format('YYYY-MM-DD');
-  submitted = false;
+
+  private modalToggle: Boolean = false;
+  modal: HTMLElement;
+  private modalStatus: Boolean = false;
+  private modalBackdrop: HTMLElement;
+
+  private task: any = {
+    name: '',
+    description: '',
+    date: '',
+    dueDate: '',
+    dTime: '',
+    dDate: '',
+    ddTime: '',
+    ddDate: ''
+  }
+
+  private events: Array<Object> = [
+      {
+        title: 'Jeszcze nie wiem',
+        start: '2017-06-10T20:30:00',
+        end: '2017-06-06T21:45:00'
+      }
+    ]
 
   constructor(private element : ElementRef) {
     this.calendarOptions['now'] = this.today;
     this.calendarOptions['defaultDate'] = this.today;
   }
 
-  onSubmit() {
-    this.submitted = true;
+  saveChanges() {
+    $('angular2-fullcalendar').fullCalendar('renderEvent',
+                {
+                  title: this.task.name,
+                  start: this.task.date,
+                  end: this.task.dueDate
+                }
+              );
+
+    this.closeModal();
+  }
+
+  updateTaskDate() {
+    if (this.task.dDate && this.task.dTime) {
+      this.task.date = this.task.dDate + 'T' + this.task.dTime + ':00';
+    }
+  }
+
+  updateTaskDueDate() {
+    if (this.task.ddDate && this.task.ddTime) {
+      this.task.dueDate = this.task.ddDate + 'T' + this.task.ddTime + ':00';
+    }
+  }
+
+  toggleModal() {
+    this.modal = <HTMLElement>document.querySelector('#app-modalcalendar');
+    console.log('modal element',this.modal);
+    if (!this.modalToggle) {
+      this.openModal();
+    } else {
+      this.closeModal();
+    }
+  }
+
+  openModal() {
+    this.modalToggle = true;
+    this.modal.classList.add('show', 'in');
+    this.createBackdrop();
+  }
+
+  closeModal() {
+    this.modalToggle = false;
+    this.modal.classList.remove('show', 'in');
+    this.removeBackdrop();
   }
 
   ngOnInit() {
+
   }
 
   ngAfterViewInit() {
+    this.modal = <HTMLElement>document.querySelector('#app-modalcalendar');
+
+    // this.task = {
+    //   name: this.events[0]['title'],
+    //   date: this.events[0]['start'],
+    //   dueDate: this.events[0]['end']
+    // }
+  }
+
+  createBackdrop() {
+    this.modalBackdrop = document.createElement('div');
+    this.modalBackdrop.classList.add('modal-backdrop', 'fade', 'in', 'show');
+    document.getElementsByTagName('body')[0].appendChild(this.modalBackdrop);
+  }
+
+  removeBackdrop() {
+    this.modalBackdrop.parentNode.removeChild(this.modalBackdrop);
+  }
+
+  toggle(start, end, allDay) {
+    console.log('plannercalendar', start, end, allDay);
+
+    this.toggleModal();
+
+    $('angular2-fullcalendar').fullCalendar('unselect');
+  }
+
+  onSubmit(data) {
+    // tutaj mamy PUT do RESTA z zapisem
+    $('angular2-fullcalendar').fullCalendar('renderEvent', data);
   }
 
   calendarOptions:Object = {
@@ -38,7 +143,7 @@ export class PlannerCalendarComponent implements OnInit, AfterViewInit {
         },
         height: '600px',
         fixedWeekCount : true,
-        defaultDate: '2017-05-20',
+        defaultDate: '2017-06-20',
         defaultView: 'agendaWeek',
         timeFormat: 'H:mm',
         titleFormat: 'D MMMM YYYY',
@@ -96,118 +201,27 @@ export class PlannerCalendarComponent implements OnInit, AfterViewInit {
           End means ending time of event.
           allDay means if events is for entire day or not.
         */
-        select: (start, end, allDay) => {
+       select: this.toggle,
+        // select: (start, end, allDay) => {
+        //   /*
+        //     after selection user will be promted for enter title for event.
+        //   */
+        //   let title = prompt('Event Title:');
+        //   /*
+        //     if title is enterd calendar will add title and event into fullCalendar.
+        //   */
+        //   if (title) {
+        //     $('angular2-fullcalendar').fullCalendar('renderEvent',
+        //       {
+        //         title: title,
+        //         start: start,
+        //         end: end
+        //       }
+        //     );
+        //   }
 
-          /*
-            after selection user will be promted for enter title for event.
-          */
-          let title = prompt('Event Title:');
-          /*
-            if title is enterd calendar will add title and event into fullCalendar.
-          */
-          if (title) {
-            $('angular2-fullcalendar').fullCalendar('renderEvent',
-              {
-                title: title,
-                start: start,
-                end: end
-              }
-            );
-          }
-
-          $('angular2-fullcalendar').fullCalendar('unselect');
-        },
-        events: [
-          {
-            title: 'Jeszcze nie wiem',
-            start: '2017-05-19T10:30:00',
-            end: '2017-05-19T11:45:00'
-          },
-          {
-            title: 'Długie wydarzenie do zrealizowania',
-            start: '2017-05-10',
-            end: '2018-12-31'
-          },
-           {
-            title: 'Długi dzień w szkole',
-            start: '2017-05-21T09:30:00',
-            end: '2017-05-21T16:30:00'
-          },
-          {
-            id: 999,
-            title: 'szukanie sali',
-            start: '2017-05-22T16:00:00'
-          },
-          {
-            id: 999,
-            title: 'szukanie orkiestry',
-            start: '2017-05-16T16:00:00'
-          },
-          {
-            title: 'Spotkanie w Urzędzie',
-            start: '2017-05-15T10:30:00',
-            end: '2017-05-15T12:30:00'
-          },
-          {
-            title: 'Obiad',
-            start: '2016-10-12T12:00:00'
-          },
-          {
-            title: 'Spotknie z księdzem',
-            start: '2018-09-12T14:30:00'
-          },
-          {
-            title: 'Odpoczynek',
-            start: '2016-09-12T17:30:00'
-          },
-          {
-            title: 'Kolacja z rodzicami',
-            start: '2016-05-12T20:00:00'
-          },
-          {
-            title: 'Urodziny moje',
-            start: '2017-05-23T07:00:00'
-          },
-          {
-            title: 'Sprawdż stronę',
-            url: 'http://www.zespoly-weselne.pl',
-            start: '2016-09-29'
-          },
-          {
-            id: 999,
-            title: 'szukanie orkiestry',
-            start: '2017-04-05T16:00:00'
-          },
-          {
-            title: 'Spotkanie w Urzędzie',
-            start: '2017-05-18T11:00:00',
-            end: '2017-05-18T12:30:00'
-          },
-          {
-            title: 'Obiad ze świadkową',
-            start: '2017-04-30T14:00:00'
-          },
-          {
-            title: 'Spotaknie z księdzem',
-            start: '2017-05-22T15:30:00'
-          },
-          {
-            title: 'Odpoczynek',
-            start: '2017-09-12T17:45:00'
-          },
-          {
-            title: 'Kolacja z rodzicami',
-            start: '2017-05-12T20:00:00'
-          },
-          {
-            title: 'Urodziny',
-            start: '2017-09-13T07:00:00'
-          },
-          {
-            title: 'Sprawdż stronę',
-            url: 'http://www.zespoly-weselne.pl',
-            start: '2017-09-28'
-          }
-        ]
+        //   $('angular2-fullcalendar').fullCalendar('unselect');
+        // },
+        events: this.events
     }
 }
