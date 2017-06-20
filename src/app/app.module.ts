@@ -42,9 +42,10 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { BlogService } from './services/blog.service';
 import { PostComponent } from './blog/post/post.component';
 import { ModalcalendarComponent } from './modalcalendar/modalcalendar.component';
-
-
-
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { RegisterPersonalComponent } from './register-personal/register-personal.component';
+import { RegisterCompanyComponent } from './register-company/register-company.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,10 @@ import { ModalcalendarComponent } from './modalcalendar/modalcalendar.component'
     CalendarComponent,
     PostComponent,
     ModalcalendarComponent,
+    LoginComponent,
+    RegisterComponent,
+    RegisterPersonalComponent,
+    RegisterCompanyComponent,
   ],
   imports: [
     BrowserModule,

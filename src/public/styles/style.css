@@ -10869,6 +10869,39 @@ body {
 .text-special {
   color: #a499c9;
 }
+.register-main-section {
+  background-color: #fff;
+}
+.register-section {
+  background-color: #fcfaf8;
+  height: 100vh;
+  overflow: hidden;
+  color: #777;
+}
+.register-section .register-bg {
+  background-image: url('../../images/register/register_bg_company.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: static;
+  margin-top: -30px;
+  height: 100vh;
+}
+.register-section .register-private {
+  background-image: url('../../images/register/register_bg.jpg');
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.register-section .blur {
+  width: 100%;
+  display: block;
+  position: absolute;
+  height: 100vh;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+.register-section h2 {
+  margin-bottom: 18.75px;
+}
 .hero-section {
   background-image: url('../../images/hero/hero-1.jpg');
   background-position: center center;

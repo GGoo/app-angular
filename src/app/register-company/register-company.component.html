@@ -1,0 +1,64 @@
+<div class="section register-section">
+    <div class="container">
+        <div class="col-sm-6">
+            <h2>Utwórz konto firmowe</h2>
+            <form name="form" novalidate>
+                <div class="form-group">
+                    <label for="username">Nazwa użytkownika</label>
+                    <input type="text" class="form-control" name="username" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Hasło</label>
+                    <input type="password" class="form-control" name="password" required />
+                </div>
+                <div class="form-group">
+                    <label for="repassword">Powtórz hasło</label>
+                    <input type="repassword" class="form-control" name="repassword" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" class="form-control" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="text">Nazwa firmy</label>
+                    <input type="text" class="form-control" name="companyName" required />
+                </div>
+                <div class="form-group">
+                    <label for="text">Ulica</label>
+                    <input type="text" class="form-control" name="adress1" required />
+                </div>
+                <div class="form-group">
+                    <label for="text">Kod pocztowy</label>
+                    <input type="text" class="form-control" name="adress2" required />
+                </div>
+                <div class="form-group">
+                    <label for="text">Miasto</label>
+                    <input type="text" class="form-control" name="city" required />
+                </div>
+                <div class="form-group">
+                    <label for="text">Województwo</label>
+                    <select name="province" class="form-control">
+                        <option value="">-- wybierz województwo --</option>
+                        <option value="">Mazowieckie</option>
+                        <option value="">Świętokrzyskie</option>
+                        <option value="" selected="">Pomorskie</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="text">Telefon</label>
+                    <input type="text" class="form-control" name="phone" required />
+                </div>
+                <div class="form-group">
+                    <button [disabled]="loading" class="btn btn-primary">Zarejestruj</button>
+                    <a [routerLink]="['/rejestracja']" class="btn btn-link">Anuluj</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-6">
+            <div class="container">
+                <div class="register-bg"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
