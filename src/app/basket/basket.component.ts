@@ -16,7 +16,7 @@ export class BasketComponent implements OnInit {
   constructor(private basketPackageService: BasketPackageService ){ }
 
   ngOnInit() {
-   //this.services= this.basketPackageService.getData();
+   this.services= this.basketPackageService.getData();
   }
 
   clicked(service : Service){

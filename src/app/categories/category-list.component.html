@@ -1,5 +1,5 @@
-<div class="container row">
-  <div class="col-md-7 col-sm-12" (click)="onClicked()">
+<div class="container">
+  <div  (click)="onClicked()">
     <ul *ngIf = "unselected" class="list-group">
       <app-category-item *ngFor="let category of categories; let i = index "
                          [category]="category" [categoryId] = i></app-category-item>

@@ -18,14 +18,15 @@
   </div>
   <div class="col-sm-6">
     <div dnd-droppable (onDropSuccess)="addToBasket($event)" [dropZones]="['package']" class="panel panel-info">
-      <div class="panel-heading">Nasz pakiet<br>(łączny koszt wybranych usług: {{totalCost()}} zł)
-        <button class="save" (click)="saveBasket(shoppingBasket)">Zapisz pakiet</button></div>
+      <div class="panel-heading">Nasz pakiet<br>(łączny koszt wybranych usług: {{totalCost()}} zł)</div>
+
       <div class="panel-body">
         <div *ngFor="let service of shoppingBasket" class="panel panel-default">
           <div class="panel-body">
             {{service.name}}<br>(koszt: {{service.cost}} zł)
             <button class="delete" (click)="removeFromBasketToServices(service)">x</button>
           </div>
+          <button class="save" (click)="saveBasket(shoppingBasket)">Zapisz pakiet</button>
         </div>
       </div>
     </div>

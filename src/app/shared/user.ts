@@ -1,3 +1,12 @@
+import {JsonObject, JsonMember} from 'typedjson-npm';
+
+
+@JsonObject
 export class User {
-  constructor(public id: number, public login: string){}
+
+  @JsonMember
+  public id: number;
+
+  @JsonMember
+  public login: string;
 }
