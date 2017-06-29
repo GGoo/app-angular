@@ -8,8 +8,8 @@ import 'rxjs/Rx';
 @Injectable()
 export class CategoryService {
 
-  private baseUrl: string = 'http://137.74.116.6/rest/categories';
- // private baseUrl: string = 'https://ajdutestjsonow.firebaseio.com/.json';
+  //private baseUrl: string = 'http://137.74.116.6/rest/categories';
+ private baseUrl: string = 'https://ajdutestjsonow.firebaseio.com/.json';
   categories : Category[];
 
   constructor(private http: Http) { }

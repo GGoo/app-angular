@@ -1,0 +1,24 @@
+a {
+  color: #777;
+}
+
+a :hover{
+  color: #333333;
+}
+
+.list-group-item {
+  padding-top: 10%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  border-radius: 6%;
+}
+
+.text {
+  position: absolute;
+  top: 40%;
+  left: auto;
+  bottom: 0;
+  right: auto;
+}
+
+

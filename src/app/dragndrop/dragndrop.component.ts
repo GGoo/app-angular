@@ -21,6 +21,7 @@ export class DragndropComponent implements OnInit, OnDestroy {
   @Input() organizationId: number;
   services: Array<Service>;
   shoppingBasket: Array<Service> = [];
+  errorMessage: string;
 
   constructor(private route: ActivatedRoute, private organizationService: OrganizationService,
               private serviceService: ServiceService, private basketPackageService: BasketPackageService) { }
@@ -84,8 +85,13 @@ export class DragndropComponent implements OnInit, OnDestroy {
     return cost;
   }
 
-  saveBasket(services : Service[]) {
-    this.basketPackageService. storeServices(services);
+  saveBasket(shoppingBasket: Array<Service>) {
+   // console.log(this.shoppingBasket);
+
+   console.log("shoping basket" + shoppingBasket);
+   this.basketPackageService.storeServices(shoppingBasket).subscribe(
+     error => this.errorMessage = <any>error);;
+
   }
 
 }
